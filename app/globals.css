@@ -1,0 +1,157 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --color-navy-50: #f2f5fa;
+  --color-navy-100: #e2e9f4;
+  --color-navy-200: #c3d0e6;
+  --color-navy-600: #33475f;
+  --color-navy-700: #24344d;
+  --color-navy-800: #1a2b4a;
+  --color-navy-900: #14213d;
+
+  --color-blush-50: #fff6f5;
+  --color-blush-100: #feeceb;
+  --color-blush-200: #fbd5d3;
+  --color-blush-300: #f5b5b3;
+  --color-blush-400: #ec8e97;
+  --color-blush-500: #d96b7e;
+  --color-blush-600: #bc4f66;
+
+  --color-lavender-50: #f6f3ff;
+  --color-lavender-100: #ede8fd;
+  --color-lavender-200: #ddd2fb;
+  --color-lavender-300: #c2aef7;
+  --color-lavender-400: #a385ef;
+  --color-lavender-500: #8b6be3;
+  --color-lavender-600: #7153c7;
+
+  --color-teal-soft-50: #effdf9;
+  --color-teal-soft-100: #ccfbf0;
+  --color-teal-soft-200: #99f0e0;
+  --color-teal-soft-500: #14a89a;
+  --color-teal-soft-600: #0e857b;
+  --color-teal-soft-700: #0c6b64;
+
+  --color-sky-soft-50: #f0f9ff;
+  --color-sky-soft-100: #e0f2fe;
+  --color-sky-soft-200: #bae6fd;
+  --color-sky-soft-500: #2f9dc4;
+  --color-sky-soft-600: #237ea3;
+
+  --shadow-soft: 0 1px 2px rgb(26 43 74 / 0.05), 0 4px 16px -4px rgb(26 43 74 / 0.08);
+  --shadow-lift: 0 2px 4px rgb(26 43 74 / 0.06), 0 12px 32px -8px rgb(26 43 74 / 0.14);
+
+  --radius-card: 1.25rem;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: #fffdfc;
+  color: var(--color-navy-800);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+::selection {
+  background: var(--color-blush-200);
+}
+
+/* Calm dashboard motion: fade, slide, hover, progress */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes progress-fill {
+  from {
+    width: 0;
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.5s ease-out both;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.28s ease-out both;
+}
+
+.animate-progress-fill {
+  animation: progress-fill 1s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up,
+  .animate-slide-up,
+  .animate-progress-fill {
+    animation: none;
+  }
+}
+
+/* Print: output only the visit brief / passport document */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #visit-brief,
+  #visit-brief *,
+  #passport-preview,
+  #passport-preview * {
+    visibility: visible;
+  }
+  #visit-brief,
+  #passport-preview {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
+/* Subtle scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #ddd2fb transparent;
+}
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+*::-webkit-scrollbar-thumb {
+  background: #ddd2fb;
+  border-radius: 999px;
+}

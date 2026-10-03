@@ -1,0 +1,17 @@
+{
+  "name": "Nurtura AI",
+  "short_name": "Nurtura",
+  "description": "From 'I need a doctor' to 'I know my next step.' Assistive maternal & child care-journey companion.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fffdfc",
+  "theme_color": "#1a2b4a",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
