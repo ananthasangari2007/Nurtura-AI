@@ -21,6 +21,12 @@ import {
  * route contexts in dev and single-instance demos. A production version
  * would back this with Supabase (`handoff_passports` + `handoff_audit`
  * tables, RLS, real auth).
+ *
+ * Vercel/serverless note: the tmp file is EPHEMERAL — each serverless
+ * instance (and each fresh deploy) starts with an empty vault, so share
+ * links are demo-session scoped. Unknown/expired tokens fall through to
+ * the friendly not-found page; nothing crashes. Do not rely on this vault
+ * for real patient sharing.
  */
 
 type VaultData = {

@@ -7,7 +7,7 @@
  * NEVER import this (or any key) from client components.
  */
 
-import { getDataProvider } from "@/lib/db/provider";
+import { getDataProvider, supabaseAnonKey, supabaseUrl } from "@/lib/db/provider";
 
 export type SupabaseConfig = {
   url: string;
@@ -16,8 +16,8 @@ export type SupabaseConfig = {
 
 export function getSupabaseConfig(): SupabaseConfig | null {
   if (getDataProvider() === "mock") return null;
-  const url = process.env.SUPABASE_URL ?? "";
-  const anonKey = process.env.SUPABASE_ANON_KEY ?? "";
+  const url = supabaseUrl();
+  const anonKey = supabaseAnonKey();
   if (!url || !anonKey) return null;
   return { url, anonKey };
 }

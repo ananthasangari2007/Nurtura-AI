@@ -23,6 +23,8 @@ export const mockJourneyRepository: JourneyRepository = {
 };
 
 export function getJourneyRepository(): JourneyRepository {
-  // Future: `if (process.env.SUPABASE_URL) return supabaseJourneyRepository;`
+  // Live swap point: when getDataProvider() (lib/db/provider) reports
+  // "supabase", return a Supabase-backed repository over `care_events`
+  // (see supabase/schema.sql). Mock shapes keep the demo alive until then.
   return mockJourneyRepository;
 }
